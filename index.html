@@ -1,134 +1,25 @@
 <!DOCTYPE html>
-<html xml:lang="en-au" lang="en-au">
-<head>
-	<meta charset="utf-8" />
-	<title>Correct Horse Battery Staple | Generate Secure Memorable Passwords</title>
-	<meta name="description" content="Correct Horse Battery Staple, Generate Secure Memorable Passwords. A secure password will help keep you safer online" />
-	<meta name="keywords" content="Correct Horse Battery Staple, Generate Secure Memorable Passwords, xkcd, secure password, memorable password, password generator" />
-	<meta name="revisit-after" content="7 days" />
-	<meta name="robots" content="index,follow" />
-	<meta name="rating" content="General" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Correct Horse Battery Staple | Generate Secure Memorable Passwords
+    </title>
+    <meta
+      name="description"
+      content="Correct Horse Battery Staple, Generate Secure Memorable Passwords. A secure password will help keep you safer online"
+    />
 
-	<link rel="apple-touch-icon" href="/apple-icon-touch.png">
-	<link rel="icon" href="favicon.png">
-	<!--[if IE]>
-		<link rel="shortcut icon" href="favicon.ico">
-	<![endif]-->
-	<meta name="msapplication-TileColor" content="#f0f0f0">
-	<meta name="msapplication-TileImage" content="/win8-tile-icon.png">
+    <link rel="icon" href="favicon.png" />
+    <meta name="msapplication-TileColor" content="#f0f0f0" />
 
-	<meta name="HandheldFriendly" content="True" />
-	<meta name="MobileOptimized" content="320" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./style.min.css" />
+  </head>
 
-	<link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
+  <body>
+    <div id="app"></div>
+    <div class="basic">Testing</div>
 
-	<div id="container">
-		<h1>Correct Horse Battery Staple</h1>
-		<div id="content">
-			<h2>Secure password generator to help keep you safer online</h2>
-			<hr>
-			<div class="field input">
-				<input type="text" id="txt"/><strong>Length:</strong><em>0</em>
-			</div>
-
-			<small>If you find better, free, less obscene wordlists or any issues, please <a href="https://github.com/FSMaxB/correcthorsebatterystaple/issues/new">let me know.</a> - FSMaxB</small>
-
-			<div class="field"><input type="button" id="btn-generate" class="button" value="Generate password"/></div>
-
-			<div class="fieldset">
-				<legend>Information</legend>
-				<h3>Information</h3>
-				<h4>Security equivalent to:</h4>
-				<ul>
-					<li>
-						<span id="lcase-password" style="font-family: Monospace"></span>
-						(<span id="lcase-length"></span> lowercase letters)
-					</li>
-					<li>
-						<span id="alnum-password" style="font-family: Monospace"></span>
-						(<span id="alnum-length"></span> alphanumeric symbols)
-					</li>
-					<li>
-						<span id="ascii-password" style="font-family: Monospace"></span>
-						(<span id="ascii-length"></span> printable ASCII symbols)
-					</li>
-				</ul>
-				<h4>Number of words to choose from</h4>
-				<span id="wordlist-size"></span>
-				<h4>Entropy</h4>
-				<span id="display-entropy">0</span>&nbsp;Bits
-				<br>
-				The entropy is an indicator of how much randomness the password contains and consequently how hard it will be to guess. In this case it is assumed that the attacker knows that this tool has been used, so the entropy is calculated as <span style="font-family: Monospace">log<sub>2</sub>(wordlistSize<sup>numberOfWords</sup>)</span>.
-
-			</div>
-			<hr>
-
-			<div class="fieldset">
-				<legend>Options</legend>
-				<h3>Options</h3>
-				<div class="field">
-					<label for="min-words">Words</label>
-					<select id="min-words" data-option="minWords">
-						<option value="4" selected="selected">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
-				</div>
-
-				<div class="field">
-					<label for="language">Language</label>
-					<select id="language" data-option="language">
-						<option value="chinese">chinese</option>
-						<option value="english" selected="selected">english</option>
-						<option value="english-less-obscene">english (less obscene but less secure)</option>
-						<option value="french">french</option>
-						<option value="german">german</option>
-						<option value="italian">italian</option>
-						<option value="polish">polish</option>
-						<option value="russian">russian</option>
-						<option value="spanish">spanish</option>
-					</select>
-				</div>
-
-				<div class="field">
-					<label for="separator">Separator</label>
-					<input type="text" id="separator" data-option="separator" value=" " size="1"/>
-				</div>
-
-				<div class="field cbx">
-					<input type="checkbox" data-option="firstUpper" id="first-upper" />
-					<label for="first-upper">Make First Letter Uppercase</label>
-				</div>
-
-				<div class="field cbx">
-					<input type="checkbox" data-option="saveOptions" id="save-options" />
-					<label for="save-options"><strong>Save these options.*</strong></label>
-				</div>
-
-				<!--<div class="field cbx">-->
-				<!--	<input type="checkbox" id="jargon" />-->
-				<!--	<label for="jargon">Add more words to the mix*</label>-->
-				<!--</div>-->
-			</div>
-		</div>
-	</div>
-
-	<div class="footnote">
-		<p>This is an <a href="http://xkcd.com/936/">XKCD inspired</a> password generator.</p>
-		<p>*Saving options will utilise LocalStorage. De-selecting will remove the options from LocalStorage. </p>
-		<p>Maintained by <a href="https://github.com/FSMaxB">FSMaxB</a> on <a href="https://github.com/FSMaxB/correcthorsebatterystaple">GitHub</a></p>
-		<p>Forked from <a href="http://twitter.com/geekyjohn">JVDL</a> (on <a href="https://bitbucket.org/jvdl/correcthorsebatterystaple">Bitbucket</a>)</p>
-	</div>
-
-	<script type="text/javascript" src="jquery-3.1.0.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-</body>
+    <script type="text/javascript" src="./main.min.js"></script>
+  </body>
 </html>

@@ -1,19 +1,21 @@
 {
-  "name": "CorrectHorseBatteryStaple",
+  "name": "correcthorsebatterystaple",
   "private": true,
-  "dependencies": {},
   "scripts": {
-    "deploy": "grunt deploy"
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "dependencies": {
+    "purgecss-webpack-plugin": "^1.4.0",
+    "tailwindcss": "^0.7.3",
+    "vue": "^2.5.22"
   },
   "devDependencies": {
-    "colors": "~0.6.1",
-    "less-monitor": "~0.2.0",
-    "underscore": "~1.5.1",
-    "grunt": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.0",
-    "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-cssmin": "~0.6.1"
-  },
-  "author": "John Van Der Loo",
-  "license": "MIT"
+    "cross-env": "^5.2.0",
+    "glob-all": "^3.1.0",
+    "laravel-mix": "^4.0.14",
+    "sass": "^1.16.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.22"
+  }
 }

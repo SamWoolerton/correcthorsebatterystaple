@@ -2253,7 +2253,6 @@ saucer
 madden
 scold
 weekday
-rotten
 disrespect
 widower
 deafen
@@ -2282,3 +2281,7 @@ sow
 pronunciation
 beak
 plural
+complex
+entry
+fist
+brighter
