@@ -1,7 +1,3 @@
-.basic {
-  background: blue;
-}
-
-.to-remove {
-  background: red;
+.card {
+  @apply .bg-white .shadow-card .py-8 .px-10;
 }

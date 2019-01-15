@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container my-16 mx-auto">
     <Main/>
     <Footer/>
   </div>
@@ -10,6 +10,6 @@ import Main from "./components/Main.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
-  components: { App }
+  components: { Main, Footer }
 };
 </script>
