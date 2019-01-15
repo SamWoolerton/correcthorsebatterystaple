@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-16 mx-auto">
+  <div class="container my-16">
     <Main/>
     <Footer/>
   </div>

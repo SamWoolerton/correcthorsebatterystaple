@@ -16,15 +16,15 @@
     <div class="field">
       <label for="language">Language</label>
       <select id="language" data-option="language">
-        <option value="chinese">chinese</option>
-        <option value="english" selected="selected">english</option>
-        <option value="english-less-obscene">english (less obscene but less secure)</option>
-        <option value="french">french</option>
-        <option value="german">german</option>
-        <option value="italian">italian</option>
-        <option value="polish">polish</option>
-        <option value="russian">russian</option>
-        <option value="spanish">spanish</option>
+        <option value="chinese">Chinese</option>
+        <option value="english" selected="selected">English</option>
+        <option value="english-clean">English (clean but less secure)</option>
+        <option value="french">French</option>
+        <option value="german">German</option>
+        <option value="italian">Italian</option>
+        <option value="polish">Polish</option>
+        <option value="russian">Russian</option>
+        <option value="spanish">Spanish</option>
       </select>
     </div>
 
@@ -41,13 +41,15 @@
     <div class="field cbx">
       <input type="checkbox" data-option="saveOptions" id="save-options">
       <label for="save-options">
-        <strong>Save these options.*</strong>
+        <strong>Save these options. *</strong>
       </label>
     </div>
-
-    <!--<div class="field cbx">-->
-    <!--	<input type="checkbox" id="jargon" />-->
-    <!--	<label for="jargon">Add more words to the mix*</label>-->
-    <!--</div>-->
   </div>
 </template>
+
+<script>
+export default {
+  // TODO: save options to localStorage
+};
+</script>
+

@@ -7,15 +7,22 @@
       <h4>Secure password generator to help keep you safer online</h4>
     </div>
 
-    <div>
-      <input type="text" :value="password" class="bg-blue-lightest w-full">
-      <div>Length: {{ passwordLength }}</div>
+    <div class="relative">
+      <input
+        type="text"
+        :value="password"
+        class="bg-blue-lightest w-full py-4 px-5 border-blue border-2"
+      >
+      <div
+        class="absolute pin-r pin-t block h-full flex items-center pr-4"
+      >{{ passwordLength }} characters</div>
     </div>
 
     <!-- <Info/> -->
     <Options/>
 
     <div @click="generatePassword" class="button mt-4">Generate new password</div>
+    {{ password }}
   </div>
 </template>
 
