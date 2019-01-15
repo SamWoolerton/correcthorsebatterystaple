@@ -1,3 +1,7 @@
 .card {
   @apply .bg-white .shadow-card .py-8 .px-10;
 }
+
+.button {
+  @apply .inline-block .text-white .bg-blue .py-4 .px-6;
+}
