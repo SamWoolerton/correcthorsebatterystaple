@@ -37,7 +37,9 @@ export default {
     return {
       password: "placeholder for now",
       storageKey: "CHBSOptions",
-      options: {}
+      options: {},
+      wordLists: {},
+      activeList: []
     };
   },
   computed: {
@@ -51,6 +53,7 @@ export default {
     },
     loadList() {
       // load list via AJAX request
+      // will need a dev server to pull this off
 
       this.generatePassword();
     }
