@@ -1,5 +1,6 @@
 <template>
   <div class="card mt-6">
+    <p>TODO: Need to update the below attributions to clear up what's going on</p>
     <p>
       This is an
       <a href="http://xkcd.com/936/">XKCD inspired</a> password generator.

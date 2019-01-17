@@ -8,7 +8,12 @@
     <div class="field">
       <label for="language">Language</label>
       <select id="language">
-        <option value="chinese" v-for="language in languages" :key="language">{{ language }}</option>
+        <option
+          v-for="language in languages"
+          :key="language"
+          :value="language"
+          :selected="language === activeLanguage"
+        >{{ language }}</option>
       </select>
     </div>
 
@@ -38,7 +43,7 @@ export default {
       uppercaseFirstLetter: true,
       minCharacters: 20,
       minWords: 4,
-      language: "English",
+      activeLanguage: "English (clean)",
       separator: " ",
       saveOptions: true,
       languages: [
