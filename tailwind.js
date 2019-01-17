@@ -110,7 +110,9 @@ module.exports = {
       "Helvetica Neue",
       "sans-serif",
     ],
+    // adding Merriweather before system font stack
     serif: [
+      "Merriweather",
       "Constantia",
       "Lucida Bright",
       "Lucidabright",

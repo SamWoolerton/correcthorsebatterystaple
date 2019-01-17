@@ -1,3 +1,9 @@
+h1,
+h2,
+h3 {
+  @apply .font-serif;
+}
+
 .card {
   @apply .bg-white .shadow-card .py-8 .px-10;
 }
