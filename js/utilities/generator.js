@@ -67,36 +67,3 @@ function getRandomWords(n, data, options) {
 function joinWordsToPassword(numWords = 4, separator) {
   return getRandomWords(numWords).join(separator)
 }
-
-/// ###############################################################################################
-const storageKey = "CHBSOptions"
-const data = []
-const wordlists = {}
-const words = []
-
-/**
- * Load a data file and fire an optional callback.
- * The data file is assumed to be a CSV list of words and will be
- * split in to an array of words and appended to the main data key
- */
-function loadData(language, callback) {
-  $.get(
-    "data/" + language + ".txt",
-    function(content, textStatus) {
-      if (!self.wordlists[language]) {
-        self.wordlists[language] = content.toString().split("\n")
-        if (
-          self.wordlists[language][self.wordlists[language].length - 1] === ""
-        ) {
-          self.wordlists[language].pop()
-        }
-      }
-      self.data = self.wordlists[language]
-
-      if (callback) {
-        callback.call(this, content, textStatus)
-      }
-    },
-    "text"
-  )
-}

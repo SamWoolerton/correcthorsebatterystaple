@@ -10,7 +10,7 @@
     <div class="relative">
       <input
         type="text"
-        :value="password"
+        v-model="password"
         class="bg-blue-lightest w-full py-4 px-5 border-blue border-2"
       >
       <div
@@ -22,7 +22,6 @@
     <Options/>
 
     <div @click="generatePassword" class="button mt-4">Generate new password</div>
-    <p>{{ password }}</p>
   </div>
 </template>
 
@@ -36,7 +35,9 @@ export default {
   components: { Info, Options },
   data() {
     return {
-      password: "placeholder for now"
+      password: "placeholder for now",
+      storageKey: "CHBSOptions",
+      options: {}
     };
   },
   computed: {
@@ -46,8 +47,16 @@ export default {
   },
   methods: {
     generatePassword() {
-      alert("about to generate password");
+      // alert("about to generate password");
+    },
+    loadList() {
+      // load list via AJAX request
+
+      this.generatePassword();
     }
+  },
+  mounted() {
+    this.loadList();
   }
 };
 </script>
