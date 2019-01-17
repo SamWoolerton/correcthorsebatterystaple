@@ -50,6 +50,15 @@
 <script>
 export default {
   // TODO: save options to localStorage
+  data() {
+    return {
+      uppercaseFirstLetter: true,
+      minCharacters: 20,
+      minWords: 4,
+      language: "English",
+      separator: " "
+    };
+  }
 };
 </script>
 

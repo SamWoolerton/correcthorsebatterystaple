@@ -22,7 +22,7 @@
     <Options/>
 
     <div @click="generatePassword" class="button mt-4">Generate new password</div>
-    {{ password }}
+    <p>{{ password }}</p>
   </div>
 </template>
 
