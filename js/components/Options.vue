@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-lightest mt-4 py-6 px-8">
+  <div class="bg-primary-lightest mt-4 py-6 px-8">
     <div class="field">
       <label for="min-words">Words</label>
       <input type="number" min="4">

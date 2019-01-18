@@ -1,7 +1,17 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3 {
   @apply .font-serif;
+}
+
+h4 {
+  @apply .font-sans .text-grey-dark .font-normal .text-xl;
 }
 
 .card {
@@ -9,5 +19,5 @@ h3 {
 }
 
 .button {
-  @apply .inline-block .text-white .bg-blue .py-4 .px-6;
+  @apply .inline-block .text-white .bg-primary .py-4 .px-6;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="card relative">
-    <div class="h-1 bg-blue absolute pin"></div>
+    <LoadingBar :loading="loading"/>
 
     <div class="mb-4">
       <h1>Correct Horse Battery Staple</h1>
@@ -9,9 +9,9 @@
 
     <div class="relative">
       <input
-        type="text"
         v-model="password"
-        class="bg-blue-lightest w-full py-4 px-5 border-blue border-2"
+        type="text"
+        class="bg-primary-lightest w-full py-4 px-5 border-primary border-2"
       >
       <div
         class="absolute pin-r pin-t block h-full flex items-center pr-4"
@@ -21,25 +21,33 @@
     <!-- <Info/> -->
     <Options/>
 
-    <div @click="generatePassword" class="button mt-4">Generate new password</div>
+    <div
+      class="button mt-4"
+      :disabled="loading"
+      :class="{ disabled: loading }"
+      @click="generatePassword"
+    >Generate new password</div>
   </div>
 </template>
 
 <script>
-import Info from "./Info.vue";
+import LoadingBar from "./LoadingBar.vue";
+// import Info from "./Info.vue";
 import Options from "./Options.vue";
 
 import passwordGenerator from "../utilities/generator.js";
 
 export default {
-  components: { Info, Options },
+  components: { LoadingBar, Options },
+  // components: { LoadingBar, Info, Options },
   data() {
     return {
       password: "placeholder for now",
       storageKey: "CHBSOptions",
       options: {},
       wordLists: {},
-      activeList: []
+      activeList: [],
+      loading: false
     };
   },
   computed: {

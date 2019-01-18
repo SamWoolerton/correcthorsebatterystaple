@@ -10,28 +10,20 @@ let colors = {
   black: "#22292f",
   "grey-darkest": "#3d4852",
   "grey-darker": "#606f7b",
-  "grey-dark": "#8795a1",
-  grey: "#b8c2cc",
+  "grey-dark": "#8CA9C1",
+  grey: "#748CA0",
   "grey-light": "#dae1e7",
   "grey-lighter": "#f1f5f8",
   "grey-lightest": "#F9FBFC",
   white: "#ffffff",
 
-  "orange-darkest": "#462a16",
-  "orange-darker": "#613b1f",
-  "orange-dark": "#de751f",
-  orange: "#f6993f",
-  "orange-light": "#faad63",
-  "orange-lighter": "#fcd9b6",
-  "orange-lightest": "#fff5eb",
-
-  "blue-darkest": "#12283a",
-  "blue-darker": "#1c3d5a",
-  "blue-dark": "#2779bd",
-  blue: "#3490dc",
-  "blue-light": "#6cb2eb",
-  "blue-lighter": "#bcdefa",
-  "blue-lightest": "#eff8ff",
+  "primary-darkest": "#274A66",
+  "primary-darker": "#39678A",
+  "primary-dark": "#2779bd",
+  primary: "#3593D8",
+  "primary-light": "#6cb2eb",
+  "primary-lighter": "#bcdefa",
+  "primary-lightest": "#F5F9FC",
 }
 
 module.exports = {
@@ -111,19 +103,7 @@ module.exports = {
       "sans-serif",
     ],
     // adding Merriweather before system font stack
-    serif: [
-      "Merriweather",
-      "Constantia",
-      "Lucida Bright",
-      "Lucidabright",
-      "Lucida Serif",
-      "Lucida",
-      "DejaVu Serif",
-      "Bitstream Vera Serif",
-      "Liberation Serif",
-      "Georgia",
-      "serif",
-    ],
+    serif: ["Merriweather", "Georgia", "serif"],
   },
 
   /*
