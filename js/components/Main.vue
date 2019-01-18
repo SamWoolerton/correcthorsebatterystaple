@@ -2,12 +2,12 @@
   <div class="card relative">
     <LoadingBar :loading="loading"/>
 
-    <div class="mb-4">
+    <div class="mt-4 mb-6">
       <h1>Correct Horse Battery Staple</h1>
-      <h4>Secure password generator to help keep you safer online</h4>
+      <h4 class="mt-1">Secure password generator to help keep you safer online</h4>
     </div>
 
-    <div class="relative">
+    <div class="relative my-6">
       <input
         v-model="password"
         type="text"
@@ -21,12 +21,13 @@
     <!-- <Info/> -->
     <Options/>
 
-    <div
-      class="button mt-4"
+    <button
+      class="mt-6"
       :disabled="loading"
       :class="{ disabled: loading }"
       @click="generatePassword"
-    >Generate new password</div>
+    >Generate new password</button>
+    <button @click="loadListTest">Load list</button>
   </div>
 </template>
 
@@ -36,6 +37,7 @@ import LoadingBar from "./LoadingBar.vue";
 import Options from "./Options.vue";
 
 import passwordGenerator from "../utilities/generator.js";
+import ftch from "../utilities/ftch.js";
 
 export default {
   components: { LoadingBar, Options },
@@ -57,17 +59,24 @@ export default {
   },
   methods: {
     generatePassword() {
-      // alert("about to generate password");
+      passwordGenerator(this.activeList);
     },
-    loadList() {
+    loadList(language) {
       // load list via AJAX request
-      // will need a dev server to pull this off
+      fetch(`/word_lists/${language}.txt`)
+        .then(res => res.text().split("\n"))
+        .then(list => (this.activeList = list));
+
+      // TODO: cache the list in localStorage
 
       this.generatePassword();
+    },
+    loadListTest() {
+      this.loadList("French");
     }
   },
   mounted() {
-    this.loadList();
+    // this.loadList(this.options.language);
   }
 };
 </script>
