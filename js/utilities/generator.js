@@ -5,7 +5,7 @@ export default function generatePassword(list, options) {
 /**
  * Retrieve a number of random words from our dataset
  */
-function getRandomWords(list, { numWords = 4, uppercaseFirstLetter = false }) {
+function getRandomWords(list, { minWords = 4, uppercaseFirstLetter = false }) {
   const genRandomInt = () => getUniformRandomInteger(0, list.length)
   const getWord = () => list[genRandomInt()]
 
@@ -16,7 +16,7 @@ function getRandomWords(list, { numWords = 4, uppercaseFirstLetter = false }) {
       : word
   }
 
-  return Array(numWords)
+  return Array(minWords)
     .fill(0)
     .map(processWord)
 }

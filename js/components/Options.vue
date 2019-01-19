@@ -2,7 +2,7 @@
   <div class="bg-primary-lightest mt-4 py-6 px-8">
     <div class="field">
       <label for="min-words">Words</label>
-      <input id="min-words" v-model="opt.minWords" type="number" min="4">
+      <input id="min-words" v-model.number="opt.minWords" type="number" min="4">
     </div>
 
     <div class="field">
