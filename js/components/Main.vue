@@ -27,7 +27,7 @@
       :class="{ disabled: loading }"
       @click="generatePassword"
     >Generate new password</button>
-    <button @click="loadListTest">Load list</button>
+    <!-- <button @click="loadListTest">Load list</button> -->
   </div>
 </template>
 
@@ -37,7 +37,7 @@ import LoadingBar from "./LoadingBar.vue";
 import Options from "./Options.vue";
 
 import passwordGenerator from "../utilities/generator.js";
-import ftch from "../utilities/ftch.js";
+import storage from "../utilities/storage.js";
 
 export default {
   components: { LoadingBar, Options },
@@ -46,7 +46,12 @@ export default {
     return {
       password: "placeholder for now",
       storageKey: "CHBSOptions",
-      options: {},
+      options: {
+        uppercaseFirstLetter: false,
+        minWords: 4,
+        activeLanguage: "English",
+        separator: " "
+      },
       wordLists: {},
       activeList: [],
       loading: false
@@ -55,28 +60,36 @@ export default {
   computed: {
     passwordLength() {
       return this.password.length;
-    }
-  },
-  methods: {
-    generatePassword() {
-      passwordGenerator(this.activeList);
     },
-    loadList(language) {
-      // load list via AJAX request
-      fetch(`/word_lists/${language}.txt`)
-        .then(res => res.text().split("\n"))
-        .then(list => (this.activeList = list));
-
-      // TODO: cache the list in localStorage
-
-      this.generatePassword();
-    },
-    loadListTest() {
-      this.loadList("French");
+    activeListStorageKey() {
+      return `CHBS_List_${this.options.activeLanguage}`;
     }
   },
   mounted() {
-    // this.loadList(this.options.language);
+    this.loadList(this.options.activeLanguage);
+  },
+  methods: {
+    generatePassword() {
+      this.password = passwordGenerator(this.activeList, this.options);
+    },
+    loadList(language) {
+      // check if list is already in storage
+      const storedList = storage.get(this.activeListStorageKey);
+      if (storedList) {
+        this.activeList = storedList;
+        this.generatePassword();
+      } else {
+        // load list via AJAX request if not in storage
+        fetch(`/word_lists/${language}.txt`)
+          .then(res => res.text())
+          .then(text => text.split("\n"))
+          .then(list => {
+            this.activeList = list;
+            storage.set(list, this.activeListStorageKey);
+            this.generatePassword();
+          });
+      }
+    }
   }
 };
 </script>
