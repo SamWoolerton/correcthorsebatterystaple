@@ -25,6 +25,7 @@ mix
     postCss: [tailwindcss("./tailwind.js")],
   })
   .copy("index.html", "dist/index.html")
+  .copy("favicon.png", "dist/favicon.png")
   .copyDirectory("data", "dist/word_lists")
   .sass("scss/_entry.scss", "dist/style.min.css")
   .js("js/main.js", "dist/main.min.js")

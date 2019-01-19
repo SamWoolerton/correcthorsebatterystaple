@@ -11,7 +11,7 @@
       <input
         v-model="password"
         type="text"
-        class="bg-primary-lightest w-full py-4 px-5 border-primary border-2 text-grey-darkest"
+        class="bg-primary-lightest w-full py-4 px-5 border-primary border-2 text-grey-darkest leading-normal"
       >
       <div
         class="w-full text-right mt-1 text-grey-dark md:absolute md:pin-r md:pin-t md:block md:h-full md:flex md:items-center md:pr-4 md:w-auto md:mt-0"
@@ -22,7 +22,6 @@
     <Options @optionsChange="optionsChange"/>
 
     <button class="mt-6" :disabled="loading" @click="generatePassword">Generate new password</button>
-    <!-- <button @click="loadListTest">Load list</button> -->
   </div>
 </template>
 
@@ -48,7 +47,7 @@ export default {
       },
       wordLists: {},
       activeList: [],
-      loading: false
+      loading: true
     };
   },
   computed: {
