@@ -26,6 +26,7 @@
     "express": "^4.16.4",
     "glob-all": "^3.1.0",
     "laravel-mix": "^4.0.14",
+    "opn": "^5.4.0",
     "sass": "^1.16.0",
     "sass-loader": "^7.1.0",
     "stylelint-config-prettier": "^4.0.0",

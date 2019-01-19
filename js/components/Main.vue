@@ -11,10 +11,10 @@
       <input
         v-model="password"
         type="text"
-        class="bg-primary-lightest w-full py-4 px-5 border-primary border-2"
+        class="bg-primary-lightest w-full py-4 px-5 border-primary border-2 text-grey-darkest"
       >
       <div
-        class="absolute pin-r pin-t block h-full flex items-center pr-4"
+        class="w-full text-right mt-1 text-grey-dark md:absolute md:pin-r md:pin-t md:block md:h-full md:flex md:items-center md:pr-4 md:w-auto md:mt-0"
       >{{ passwordLength }} characters</div>
     </div>
 
