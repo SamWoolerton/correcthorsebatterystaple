@@ -399,6 +399,7 @@ module.exports = {
     "3xl": "80rem",
     "4xl": "90rem",
     "5xl": "100rem",
+    app: "800px",
     full: "100%",
   },
 

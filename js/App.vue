@@ -1,7 +1,9 @@
 <template>
   <div class="container my-16">
-    <Main/>
-    <Footer/>
+    <div class="mx-auto max-w-app">
+      <Main/>
+      <Footer/>
+    </div>
   </div>
 </template>
 
