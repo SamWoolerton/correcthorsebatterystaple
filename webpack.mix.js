@@ -37,7 +37,10 @@ if (mix.inProduction()) {
     plugins: [
       new PurgecssPlugin({
         // Specify the locations of any files you want to scan for class names.
-        paths: glob.sync([path.join(__dirname, "js/**/*.vue")]),
+        paths: glob.sync([
+          path.join(__dirname, "js/**/*.vue"),
+          path.join(__dirname, "./**/*.html"),
+        ]),
         extractors: [
           {
             extractor: TailwindExtractor,
