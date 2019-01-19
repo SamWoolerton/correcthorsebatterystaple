@@ -15,6 +15,14 @@ h4 {
   @apply .font-sans .text-grey-dark .font-normal .text-xl;
 }
 
+p {
+  @apply .text-grey-dark;
+
+  & ~ p {
+    @apply .mt-3;
+  }
+}
+
 .card {
   @apply .bg-white .shadow-card .py-8 .px-10;
 }
@@ -26,4 +34,8 @@ button,
   &:disabled {
     @apply .bg-grey-light .text-grey-darker .cursor-default;
   }
+}
+
+a:not(button):not(.button) {
+  @apply .font-semibold .no-underline .text-grey-darker;
 }

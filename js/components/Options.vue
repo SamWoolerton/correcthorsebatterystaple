@@ -26,13 +26,6 @@
       <input id="first-upper" v-model="opt.uppercaseFirstLetter" type="checkbox">
       <label for="first-upper">Make First Letter Uppercase</label>
     </div>
-
-    <div class="field cbx">
-      <input id="save-options" v-model="saveOptions" type="checkbox">
-      <label for="save-options">
-        <strong>Save these options. *</strong>
-      </label>
-    </div>
   </div>
 </template>
 
@@ -46,19 +39,18 @@ export default {
       opt: {
         uppercaseFirstLetter: false,
         minWords: 4,
-        activeLanguage: "English", // TODO: watch this to trigger language change (send event of all and handle in Main)
+        activeLanguage: "English",
         separator: " "
       },
-      saveOptions: true, // TODO: need to trigger this in/out of localStorage, combo of v-model and watcher
       languages: [
-        "Chinese",
         "English",
         "French",
+        "Chinese",
+        "Spanish",
         "German",
         "Italian",
-        "Polish",
         "Russian",
-        "Spanish"
+        "Polish"
       ]
     };
   },
