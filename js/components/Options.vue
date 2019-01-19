@@ -28,7 +28,7 @@
     </div>
 
     <div class="field cbx">
-      <input type="checkbox" v-model="saveOptions" id="save-options">
+      <input id="save-options" v-model="saveOptions" type="checkbox">
       <label for="save-options">
         <strong>Save these options. *</strong>
       </label>
@@ -40,16 +40,15 @@
 export default {
   data() {
     return {
-      uppercaseFirstLetter: true,
-      minCharacters: 20,
+      uppercaseFirstLetter: false,
       minWords: 4,
-      activeLanguage: "English (clean)",
+      activeLanguage: "English",
       separator: " ",
       saveOptions: true,
       languages: [
         "Chinese",
         "English",
-        "English (clean)",
+        // "English-clean",
         "French",
         "German",
         "Italian",

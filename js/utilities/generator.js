@@ -1,6 +1,24 @@
-export default function generatePassword() {
-  alert("about to generate password")
-  return "test password"
+export default function generatePassword(list, options) {
+  return getRandomWords(list, options).join(options.separator)
+}
+
+/**
+ * Retrieve a number of random words from our dataset
+ */
+function getRandomWords(list, { numWords = 4, uppercaseFirstLetter = false }) {
+  const genRandomInt = () => getUniformRandomInteger(0, list.length)
+  const getWord = () => list[genRandomInt()]
+
+  const processWord = () => {
+    const word = getWord()
+    return uppercaseFirstLetter
+      ? word.charAt(0).toUpperCase() + word.slice(1)
+      : word
+  }
+
+  return Array(numWords)
+    .fill(0)
+    .map(processWord)
 }
 
 /**
@@ -48,22 +66,4 @@ function getUniformRandomInteger(lower, upper) {
   } while (randomArray[0] > maxRandomNumber)
 
   return lower + (randomArray[0] % difference)
-}
-
-/**
- * Retrieve a number of random words from our dataset
- */
-function getRandomWords(n, data, options) {
-  const getWord = () => data[getUniformRandomInteger(0, data.length)]
-
-  const processWord = word =>
-    options.uppercaseFirstLetter
-      ? word.charAt(0).toUpperCase() + word.slice(1)
-      : word
-
-  return Array(n).fill(processWord(getWord))
-}
-
-function joinWordsToPassword(numWords = 4, separator) {
-  return getRandomWords(numWords).join(separator)
 }
