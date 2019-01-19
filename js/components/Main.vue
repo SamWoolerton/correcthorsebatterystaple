@@ -44,8 +44,7 @@ export default {
   // components: { LoadingBar, Info, Options },
   data() {
     return {
-      password: "placeholder for now",
-      storageKey: "CHBSOptions",
+      password: "",
       options: {
         uppercaseFirstLetter: false,
         minWords: 4,
@@ -74,7 +73,7 @@ export default {
     },
     loadList(language) {
       // check if list is already in storage
-      const storedList = storage.get(this.activeListStorageKey);
+      const storedList = storage.getJSON(this.activeListStorageKey);
       if (storedList) {
         this.activeList = storedList;
         this.generatePassword();
@@ -85,7 +84,7 @@ export default {
           .then(text => text.split("\n"))
           .then(list => {
             this.activeList = list;
-            storage.set(list, this.activeListStorageKey);
+            storage.setJSON(list, this.activeListStorageKey);
             this.generatePassword();
           });
       }

@@ -2,28 +2,29 @@
   <div class="bg-primary-lightest mt-4 py-6 px-8">
     <div class="field">
       <label for="min-words">Words</label>
-      <input type="number" min="4">
+      <!-- <input id="min-words" v-model="options.minWords" type="number" min="4"> -->
+      <input id="min-words" v-model="minWords" type="number" min="4">
     </div>
 
     <div class="field">
       <label for="language">Language</label>
-      <select id="language">
+      <select id="language" v-model="options.activeLanguage">
         <option
           v-for="language in languages"
           :key="language"
           :value="language"
-          :selected="language === activeLanguage"
+          :selected="language === options.activeLanguage"
         >{{ language }}</option>
       </select>
     </div>
 
     <div class="field">
       <label for="separator">Separator</label>
-      <input type="text" id="separator" v-model="separator" size="1">
+      <input id="separator" v-model="options.separator" type="text" size="1">
     </div>
 
     <div class="field cbx">
-      <input type="checkbox" v-model="uppercaseFirstLetter" id="first-upper">
+      <input id="first-upper" v-model="options.uppercaseFirstLetter" type="checkbox">
       <label for="first-upper">Make First Letter Uppercase</label>
     </div>
 
@@ -37,18 +38,22 @@
 </template>
 
 <script>
+import storage from "../utilities/storage.js";
+
 export default {
   data() {
     return {
-      uppercaseFirstLetter: false,
-      minWords: 4,
-      activeLanguage: "English",
-      separator: " ",
-      saveOptions: true,
+      minWords: 10,
+      options: {
+        uppercaseFirstLetter: false,
+        minWords: 4,
+        activeLanguage: "English",
+        separator: " "
+      },
+      saveOptions: true, // need to trigger this in/out of localStorage, combo of v-model and watcher
       languages: [
         "Chinese",
         "English",
-        // "English-clean",
         "French",
         "German",
         "Italian",
@@ -58,26 +63,20 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.getOptions();
+  },
   methods: {
     setOptions() {
-      if (!localStorage) {
-        console.log("localStorage not supported");
-      }
-      localStorage.setItem(this.storageKey, JSON.stringify(this.options));
+      storage.setJSON(this.storageKey, this.options);
     },
     getOptions() {
-      if (!localStorage) {
-        console.log("localStorage not supported");
-      }
       try {
-        this.options = JSON.parse(localStorage.getItem(this.storageKey));
+        this.options = storage.getJSON(this.storageKey);
       } catch (e) {
         console.log("Couldn't parse options");
       }
     }
-  },
-  mounted() {
-    this.getOptions();
   }
 };
 </script>
