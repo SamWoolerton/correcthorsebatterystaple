@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  transition: 0.24s;
 }
 
 h1,
@@ -21,4 +22,8 @@ h4 {
 button,
 .button {
   @apply .inline-block .text-white .bg-primary .py-4 .px-6;
+
+  &:disabled {
+    @apply .bg-grey-light .text-grey-darker .cursor-default;
+  }
 }

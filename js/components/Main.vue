@@ -21,12 +21,7 @@
     <!-- <Info/> -->
     <Options @optionsChange="optionsChange"/>
 
-    <button
-      class="mt-6"
-      :disabled="loading"
-      :class="{ disabled: loading }"
-      @click="generatePassword"
-    >Generate new password</button>
+    <button class="mt-6" :disabled="loading" @click="generatePassword">Generate new password</button>
     <!-- <button @click="loadListTest">Load list</button> -->
   </div>
 </template>
