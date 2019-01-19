@@ -19,7 +19,7 @@
     </div>
 
     <!-- <Info/> -->
-    <Options/>
+    <Options @optionsChange="optionsChange"/>
 
     <button
       class="mt-6"
@@ -78,6 +78,7 @@ export default {
         this.activeList = storedList;
         this.generatePassword();
       } else {
+        this.loading = true;
         // load list via AJAX request if not in storage
         fetch(`/word_lists/${language}.txt`)
           .then(res => res.text())
@@ -86,7 +87,18 @@ export default {
             this.activeList = list;
             storage.setJSON(list, this.activeListStorageKey);
             this.generatePassword();
-          });
+          })
+          .finally(() => (this.loading = false));
+      }
+    },
+    optionsChange(opt) {
+      const currentLang = this.options.activeLanguage;
+      this.options = { ...opt };
+
+      if (opt.activeLanguage !== currentLang) {
+        this.loadList(opt.activeLanguage);
+      } else {
+        this.generatePassword();
       }
     }
   }
