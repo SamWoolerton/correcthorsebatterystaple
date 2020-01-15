@@ -4,7 +4,9 @@
 
     <div class="mt-4 mb-6">
       <h1>Correct Horse Battery Staple</h1>
-      <h4 class="mt-1">Secure password generator to help keep you safer online</h4>
+      <h4 class="mt-1">
+        Secure password generator to help keep you safer online
+      </h4>
     </div>
 
     <div class="relative my-6">
@@ -15,13 +17,20 @@
       />
       <div
         class="w-full text-right mt-1 text-grey-dark md:absolute md:pin-r md:pin-t md:block md:h-full md:flex md:items-center md:pr-4 md:w-auto md:mt-0"
-      >{{ passwordLength }} characters</div>
+      >
+        {{ passwordLength }} characters
+      </div>
     </div>
 
     <!-- <Info/> -->
     <Options @optionsChange="optionsChange" />
 
-    <button class="mt-6" :disabled="loading" @click="generatePassword">Generate new password</button>
+    <button class="mt-6" :disabled="loading" @click="generatePassword">
+      Generate new password
+    </button>
+    <button class="mt-6 secondary" :disabled="loading" @click="copyPassword">
+      Copy password to clipboard
+    </button>
   </div>
 </template>
 
@@ -32,8 +41,7 @@ import Options from "./Options.vue"
 
 import passwordGenerator from "../utilities/generator.js"
 import storage from "../utilities/storage.js"
-import passwordGenerator from "../utilities/generator.js";
-import storage from "../utilities/storage.js";
+import copyToClipboard from "../utilities/clipboard.js"
 
 export default {
   components: { LoadingBar, Options },
@@ -45,11 +53,11 @@ export default {
         uppercaseFirstLetter: false,
         minWords: 4,
         activeLanguage: "English",
-        separator: " "
+        separator: " ",
       },
       wordLists: {},
       activeList: [],
-      loading: false
+      loading: false,
     }
   },
   computed: {
@@ -58,7 +66,7 @@ export default {
     },
     activeListStorageKey() {
       return `CHBS_List_${this.options.activeLanguage}`
-    }
+    },
   },
   mounted() {
     this.loadList(this.options.activeLanguage)
@@ -96,8 +104,10 @@ export default {
       } else {
         this.generatePassword()
       }
-        this.generatePassword();
-    }
-  }
+    },
+    copyPassword() {
+      copyToClipboard(this.password)
+    },
+  },
 }
 </script>

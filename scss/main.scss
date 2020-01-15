@@ -36,10 +36,14 @@ p {
 
 button,
 .button {
-  @apply .inline-block .text-white .bg-primary .py-4 .px-6;
+  @apply .inline-block .text-white .bg-primary .py-4 .px-6 .border-none;
 
   &:disabled {
     @apply .bg-grey-light .text-grey-darker .cursor-default;
+  }
+
+  &.secondary {
+    background: #666;
   }
 }
 
