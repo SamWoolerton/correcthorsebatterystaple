@@ -7,7 +7,9 @@
     <p>
       Original implementation by
       <a href="http://twitter.com/geekyjohn">JVDL</a> (on
-      <a href="https://bitbucket.org/jvdl/correcthorsebatterystaple">Bitbucket</a>)
+      <a href="https://bitbucket.org/jvdl/correcthorsebatterystaple"
+        >Bitbucket</a
+      >)
     </p>
   </div>
 </template>
